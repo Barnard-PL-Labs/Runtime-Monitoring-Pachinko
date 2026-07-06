@@ -41,7 +41,7 @@ This work showcases how formal methods can be taught in a hands-on, project-base
 
 ### Example Board
 
-![Pachinko board — overview]("Pachinko Board Images/Pachinko Example Top.png")
+![Pachinko board — overview](Pachinko Board Images/Pachinko Example Top.png)
 
 *Caption: [Edit this caption]*
 
