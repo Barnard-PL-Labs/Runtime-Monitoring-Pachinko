@@ -53,3 +53,7 @@ If you wish to gain access to the RTLola2C compiler to replicate this assignemnt
 
 ---
 
+## License
+
+© Miles Scharff, Maria Chemodanova, Mark Santolucito;
+licensed under Creative Commons License CC-BY 4.0
