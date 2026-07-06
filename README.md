@@ -39,9 +39,9 @@ This work showcases how formal methods can be taught in a hands-on, project-base
   and alt text below. Example paths: images/board-front.jpg
 -->
 
-### Board overview
+### Example Board
 
-![Pachinko board — overview](images/PLACEHOLDER-board-overview.jpg)
+![Pachinko board — overview]("Pachinko Board Images/Pachinko Example Top.png")
 
 *Caption: [Edit this caption]*
 
