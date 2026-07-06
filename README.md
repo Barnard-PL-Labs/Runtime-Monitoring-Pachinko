@@ -13,9 +13,9 @@ This work showcases how formal methods can be taught in a hands-on, project-base
   Replace VIDEO_ID with your YouTube video ID (the part after v= in the URL).
 -->
 
-[![Pachinko board demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+[![Pachinko board demo](https://img.youtube.com/vi/MDFKCMT7R9U/maxresdefault.jpg)](https://www.youtube.com/watch?v=MDFKCMT7R9U)
 
-**Direct link:** [Watch on YouTube](https://www.youtube.com/watch?v=VIDEO_ID)
+**Direct link:** [Watch on YouTube](https://www.youtube.com/watch?v=MDFKCMT7R9U)
 
 <!--
   Option B: if you host this README elsewhere (e.g. a project website) that
