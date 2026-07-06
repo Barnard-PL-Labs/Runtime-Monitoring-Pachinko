@@ -1,0 +1,77 @@
+// Pachinko Ball Monitor
+// 
+// Monitors 5 ball sensors for pattern detection and anomaly detection.
+// any of the specifications here could be become triggers. This spec chooses five random triggers by example
+
+input sensor_1: Float64
+input sensor_2: Float64
+input sensor_3: Float64
+input sensor_4: Float64
+input sensor_5: Float64
+
+// ============================================================================
+// Ball Detection (convert analog to boolean)
+// ============================================================================
+
+output ball_1: Bool := sensor_1 > 0.5
+output ball_2: Bool := sensor_2 > 0.5
+output ball_3: Bool := sensor_3 > 0.5
+output ball_4: Bool := sensor_4 > 0.5
+output ball_5: Bool := sensor_5 > 0.5
+
+// ============================================================================
+// Simultaneous Ball Count
+// ============================================================================
+
+output ball_count: Float64 := 
+    (if ball_1 then 1.0 else 0.0) +
+    (if ball_2 then 1.0 else 0.0) +
+    (if ball_3 then 1.0 else 0.0) +
+    (if ball_4 then 1.0 else 0.0) +
+    (if ball_5 then 1.0 else 0.0)
+
+// ============================================================================
+// Previous State Detection (for repeat detection)
+// ============================================================================
+
+output prev_ball_1: Bool := sensor_1.offset(by: -1).defaults(to: 0.0) > 0.5
+output prev_ball_2: Bool := sensor_2.offset(by: -1).defaults(to: 0.0) > 0.5
+output prev_ball_3: Bool := sensor_3.offset(by: -1).defaults(to: 0.0) > 0.5
+
+// ============================================================================
+// Pattern Outputs
+// ============================================================================
+
+// Any ball on edge channels (1 or 5)
+output edge_ball: Bool := ball_1 || ball_5
+
+// Ball on center channel (3)
+output center_ball: Bool := ball_3
+
+// Both edge channels at once (interesting pattern)
+output both_edges: Bool := ball_1 && ball_5
+
+// Adjacent channels triggered together
+output adjacent_12: Bool := ball_1 && ball_2
+output adjacent_23: Bool := ball_2 && ball_3
+output adjacent_34: Bool := ball_3 && ball_4
+output adjacent_45: Bool := ball_4 && ball_5
+
+// ============================================================================
+// Triggers - These send flags back to the system
+// ============================================================================
+
+// Trigger 0: Two or more balls detected simultaneously
+trigger ball_count >= 2.0 "Multiple balls detected simultaneously!"
+
+// Trigger 1: Same channel triggered in consecutive events
+trigger ball_1 && prev_ball_1 "Channel 1 repeated"
+
+// Trigger 2: Both edge channels at the same time
+trigger both_edges "Edge channels (1 and 5) triggered together!"
+
+// Trigger 3: Three or more balls at once
+trigger ball_count >= 3.0 "3+ balls at once"
+
+// Trigger 4: Center channel hit (could be a scoring event)
+trigger center_ball "Center channel (3) hit!"
