@@ -36,8 +36,6 @@ This work showcases how formal methods can be taught in a hands-on, project-base
 
 ![Pachinko board — overview](<Pachinko Board Images/Pachinko Example Bottom.jpg>)
 
-*Caption: [Edit this caption]*
-
 ### Student projects
 
 ![Student board 1](<Pachinko Board Images/Student Pachinko Boards.png>)
@@ -55,6 +53,3 @@ If you wish to gain access to the RTLola2C compiler to replicate this assignemnt
 
 ---
 
-## License
-
-[Choose a license, e.g. MIT, CC BY 4.0, or “All rights reserved”]
